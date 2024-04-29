@@ -1,0 +1,7 @@
+.nav-files-container {
+  overflow-x: auto;
+}
+
+.nav-file-title, .nav-folder-title {
+  width: max-content;
+}

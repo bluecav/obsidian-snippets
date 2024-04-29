@@ -1,0 +1,484 @@
+/* @settings
+name: ☁️ Tag Clouds - Version 2
+id: atx-tcv2
+settings:
+-
+    id:                     atx-tcv2-cat-general
+    title:                  '1. Appearance'
+    description:            'General appearance settings'
+    type:                   heading
+    level:                  1
+    collapsed:              true
+
+
+-
+        id:                 atx-tcv2-general-about
+        title:              ''
+        description:        "<br /><br /><h1>General</h1>General settings not categorized anywhere else."
+        type:               info-text
+        markdown:           true
+-
+        id:                 atx-tcv2-general-container-padding
+        title:              'Container Padding'
+        description:        'Amount of padding between edge of tags and note width'
+        type:               variable-number-slider
+        default:            20
+        format:             px
+        min:                0
+        max:                50
+        step:               1
+-
+        id:                 atx-tcv2-general-line-spacing
+        title:              'Height between tag on each row'
+        description:        'Font size for header description text.'
+        type:               variable-number-slider
+        default:            15
+        format:             px
+        min:                0
+        max:                30
+        step:               1
+
+
+-
+
+
+        id:                 atx-tcv2-tags-about
+        title:              ''
+        description:        "<br /><br /><h1>Tags</h1>Settings for customizing tags."
+        type:               info-text
+        markdown:           true
+-
+        id:                 atx-tcv2-tags-font-face
+        title:              'Font Face'
+        description:        'Font for tags'
+        type:               variable-text
+        default:            'sans-serif'
+-
+        id:                 atx-tcv2-tags-font-clr-h
+        title:              'Font Color (Hover)'
+        description:        'Color of tag text when tag is hovered.'
+        type:               variable-themed-color
+        opacity:            true
+        format:             hex
+        default-light:      '#FFFFFF'
+        default-dark:       '#FFFFFF'
+-
+        id:                 atx-tcv2-tags-font-weight-n
+        title:              'Font Weight (Normal)'
+        description:        'Options: normal, bold, lighter, bolder'
+        type:               variable-text
+        default:            normal
+-
+        id:                 atx-tcv2-tags-font-weight-h
+        title:              'Font Weight (Hover)'
+        description:        'Options: normal, bold, lighter, bolder'
+        type:               variable-text
+        default:            normal
+-
+        id:                 atx-tcv2-tags-spacing-internal
+        title:              'Spacing (Internal)'
+        description:        'Spacing between left and right of tag text and edge of each container'
+        type:               variable-number-slider
+        default:            5
+        format:             px
+        min:                0
+        max:                30
+        step:               1
+-
+        id:                 atx-tcv2-tags-spacing-external
+        title:              'Spacing (External)'
+        description:        'Spacing between each container box'
+        type:               variable-number-slider
+        default:            7
+        format:             px
+        min:                0
+        max:                30
+        step:               1
+
+
+-
+
+
+        id:                 atx-tcv2-counter-about
+        title:              ''
+        description:        "<br /><br /><h1>Counter</h1>Settings for tag indicator count at top left of each tag when hovered."
+        type:               info-text
+        markdown:           true
+-
+        id:                 atx-tcv2-counter-bg-clr
+        title:              'Background Color'
+        description:        'Background color for circle'
+        type:               variable-themed-color
+        opacity:            true
+        format:             hex
+        default-light:      '#424242'
+        default-dark:       '#424242'
+-
+        id:                 atx-tcv2-counter-bg-size
+        title:              'Circle Size'
+        description:        'Size of counter circle'
+        type:               variable-number-slider
+        default:            18
+        format:             px
+        min:                5
+        max:                30
+        step:               1
+-
+        id:                 atx-tcv2-counter-font-face
+        title:              'Font Face'
+        description:        'Fonts except from the code texts'
+        type:               variable-text
+        default:            'sans-serif'
+-
+        id:                 atx-tcv2-counter-font-clr-n
+        title:              'Font Color'
+        description:        'Color of tag text when tag is hovered.'
+        type:               variable-themed-color
+        opacity:            true
+        format:             hex
+        default-light:      '#FFFFFF'
+        default-dark:       '#FFFFFF'
+-
+        id:                 atx-tcv2-counter-font-size
+        title:              'Font Size'
+        description:        'Font size for counter'
+        type:               variable-number-slider
+        default:            10
+        format:             px
+        min:                5
+        max:                30
+        step:               1
+-
+        id:                 atx-tcv2-counter-font-weight
+        title:              'Font Weight'
+        description:        'Options: normal, bold, lighter, bolder'
+        type:               variable-text
+        default:            normal
+
+
+-
+
+
+    id:                     atx-tcv2-cat-anim
+    title:                  '2. Animations'
+    description:            'Animation settings'
+    type:                   heading
+    level:                  1
+    collapsed:              true
+-
+        id:                 atx-tcv2-cat-anim-1
+        title:              'Glow Animation'
+        description:        'Play glow animation when hovering tag'
+        type:               class-select
+        allowEmpty:         false
+        default:            anim-1-enabled
+        options:
+        -
+            label: Enabled
+            value: anim-1-enabled
+        -
+            label: Disabled
+            value: anim-1-disabled
+-
+        id:                 atx-tcv2-cat-anim-2
+        title:              'Scale Animation'
+        description:        'Scale text animation when hovering tag'
+        type:               class-select
+        allowEmpty:         false
+        default:            anim-2-enabled
+        options:
+        -
+            label: Enabled
+            value: anim-2-enabled
+        -
+            label: Disabled
+            value: anim-2-disabled
+-
+        id:                 atx-tcv2-cat-anim-3
+        title:              'Fade In-Out Effect'
+        description:        'Tags fading in and out on hover'
+        type:               class-select
+        allowEmpty:         false
+        default:            anim-3-enabled
+        options:
+        -
+            label: Enabled
+            value: anim-3-enabled
+        -
+            label: Disabled
+            value: anim-3-disabled
+
+
+-
+
+
+    id:                     atx-tcv2-cat-support
+    title:                  '3. Support'
+    description:            'Links associated to this snippet'
+    type:                   heading
+    level:                  1
+    collapsed:              true
+-
+    id:                     atx-tcv2-support-updates
+    title:                  View Updates
+    description:            "[https://github.com/Aetherinox/obsidian-dataview-snippets](https://github.com/Aetherinox/obsidian-dataview-snippets)"
+    type:                   info-text
+    markdown:               true
+-
+*/
+
+    /*
+        Import
+    */
+
+        @import url( http://fonts.googleapis.com/css?family=Open+Sans );
+
+    /*
+        @patch  : Blue Topaz Theme
+
+        original Blue Topaz theme overrides animations to links.
+        set transition to none and define our animations further down.
+    */
+
+        :is( .markdown-preview-view,.markdown-rendered ) a:hover
+        {
+            transition: none;
+        }
+
+    /*
+        Snippet: Tag Cloud - Version 2
+    */
+
+        body
+        {
+            --atx-tcv2-anim-1-glow:                     atx-tcv2-anim-glow;
+            --atx-tcv2-anim-2-in:                       atx-tcv2-anim-scale-in;
+            --atx-tcv2-anim-2-out:                      atx-tcv2-anim-scale-out;
+            --atx-tcv2-anim-2-scale:                    scale( 1.3 );
+            --atx-tcv2-anim-3-trans:                    opacity .3s ease-in-out;
+            --atx-tcv2-anim-3-opacity:                  0.5;
+
+            --atx-tcv2-general-line-spacing:            15px;
+            --atx-tcv2-general-container-padding:       20px;
+
+            --atx-tcv2-tags-font-face:                  sans-serif;
+            --atx-tcv2-tags-font-weight-n:              normal;
+            --atx-tcv2-tags-font-weight-h:              normal;
+            --atx-tcv2-tags-spacing-internal:           5px;
+            --atx-tcv2-tags-spacing-external:           7px;
+
+            --atx-tcv2-counter-bg-clr:                  #424242;
+            --atx-tcv2-counter-bg-size:                 18px;
+            --atx-tcv2-counter-font-face:               sans-serif;
+            --atx-tcv2-counter-font-clr-n:              #FFFFFF;
+            --atx-tcv2-counter-font-size:               10px;
+            --atx-tcv2-counter-font-weight:             normal;
+        }
+
+    /*
+        Settings > Animations
+    */
+
+        body.theme-light.anim-1-disabled,
+        body.theme-dark.anim-1-disabled
+        {
+            --atx-tcv2-anim-1-glow:     none !important;
+        }
+        
+        body.theme-light.anim-1-enabled,
+        body.theme-dark.anim-1-enabled
+        {
+            --atx-tcv2-anim-1-glow:     atx-tcv2-anim-glow;
+        }
+
+        body.theme-light.anim-2-disabled,
+        body.theme-dark.anim-2-disabled
+        {
+            --atx-tcv2-anim-2-in:       none;
+            --atx-tcv2-anim-2-out:      none;
+            --atx-tcv2-anim-2-scale:    scale( 1 );
+        }
+        
+        body.theme-light.anim-2-enabled,
+        body.theme-dark.anim-2-enabled
+        {
+            --atx-tcv2-anim-2-in:       atx-tcv2-anim-scale-in;
+            --atx-tcv2-anim-2-out:      atx-tcv2-anim-scale-out;
+            --atx-tcv2-anim-2-scale:    scale( 1.3 );
+        }
+
+        body.theme-light.anim-3-disabled,
+        body.theme-dark.anim-3-disabled
+        {
+            --atx-tcv2-anim-3-trans:    none;
+            --atx-tcv2-anim-3-opacity:  1;
+        }
+        
+        body.theme-light.anim-3-enabled,
+        body.theme-dark.anim-3-enabled
+        {
+            --atx-tcv2-anim-3-trans:    opacity .3s ease-in-out;
+            --atx-tcv2-anim-3-opacity:  0.5;
+        }
+
+    /*
+        animation: glow
+    */
+
+        @keyframes atx-tcv2-anim-glow
+        {
+            from
+            {
+                text-shadow:            0 0 110px #6f00ff, 0 0 120px #0084ff, 0 0 130px #e60073, 0 0 140px #e60073, 0 0 150px #e60073, 0 0 160px #e60073, 0 0 170px #e60073;
+            }
+            to
+            {
+                text-shadow:            0 0 20px #6f00ff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+            }
+        }
+
+    /*
+        animation: scale
+    */
+
+        @keyframes atx-tcv2-anim-scale-in
+        {
+            0%
+            {
+                transform:          scale( 1 );
+            }
+            100%
+            {
+                transform:          scale( 1.3 );
+            }
+        }
+          
+        @keyframes atx-tcv2-anim-scale-out
+        {
+            0%
+            {
+                transform:          scale( 1.3 );
+            }
+            100%
+            {
+                transform:          scale( 1 );
+            }
+        }
+
+    /*
+        Dataview parent div
+    */
+
+        .atx-tcv2-dataview
+        {
+            padding-left:           var( --atx-tcv2-general-container-padding );
+            padding-right:          var( --atx-tcv2-general-container-padding );
+        }
+
+    /*
+        Hover effect
+
+        All children are dimmed when a single tag is hovered
+    */
+
+        .atx-tcv2-dataview:hover .atx-tcv2-child
+        {
+            transition:             var( --atx-tcv2-anim-3-trans );
+            opacity:                var( --atx-tcv2-anim-3-opacity );
+        }
+
+        .atx-tcv2-dataview .atx-tcv2-child:hover
+        {
+            transition:             var( --atx-tcv2-anim-3-trans );
+            opacity:                1;
+        }
+
+        .atx-tcv2-dataview .atx-tcv2-child
+        {
+            transition:             var( --atx-tcv2-anim-3-trans );
+            opacity:                1;
+        }
+
+    /*
+        Tag Cloud > Item
+    */
+
+        .atx-tcv2-item-tags
+        {
+            margin:                     5px var( --atx-tcv2-tags-spacing-external ) 5px var( --atx-tcv2-tags-spacing-external );
+            padding:                    4px var( --atx-tcv2-tags-spacing-internal ) 4px var( --atx-tcv2-tags-spacing-internal );
+            display:                    inline-block;
+            position:                   relative;
+            animation-name:             var( --atx-tcv2-anim-2-out );
+            animation-duration:         0.3s;
+            animation-timing-function:  ease;
+            animation-iteration-count:  1;
+            animation-direction:        normal;
+        }
+
+        .atx-tcv2-item-tags:hover
+        {
+            transform:                  var( --atx-tcv2-anim-2-scale );
+            cursor:                     pointer;
+            animation-name:             var( --atx-tcv2-anim-1-glow ), var( --atx-tcv2-anim-2-in );
+            animation-duration:         1s, 0.3s;
+            animation-timing-function:  ease-in-out, ease-in-out;
+            animation-iteration-count:  infinite, 1;
+            animation-direction:        alternate, normal;
+            background:                 none;
+        }
+
+        .atx-tcv2-item-tags:hover a
+        {
+            color:                      var( --atx-tcv2-tags-font-clr-h ) !important;
+            background:                 none;
+            font-weight:                var( --atx-tcv2-tags-font-weight-h ) !important;
+        }
+
+    /*
+        Tag Cloud > Links
+    */
+
+        a.atx-tcv2-link
+        {
+            line-height:                var( --atx-tcv2-general-line-spacing );
+            vertical-align:             middle;
+            text-decoration:            none;
+            font-weight:                var( --atx-tcv2-tags-font-weight-n ) !important;
+            font-family:                var( --atx-tcv2-tags-font-face ) !important;
+        }
+
+    /*
+        Tag Cloud > Display Length Div on Item Hover
+    */
+
+        .atx-tcv2-item-tags:hover .atx-tcv2-counter
+        {
+            font-weight:                bold !important;
+            display:                    block;
+        }
+
+    /*
+        Tag Cloud > Length
+    */
+
+        .atx-tcv2-counter
+        {
+            font-weight:                var( --atx-tcv2-counter-font-weight );
+            display:                    none;
+            border-radius:              50%;
+            width:                      var( --atx-tcv2-counter-bg-size );
+            height:                     var( --atx-tcv2-counter-bg-size );
+            background:                 var( --atx-tcv2-counter-bg-clr );
+            color:                      var( --atx-tcv2-counter-font-clr-n );
+            text-align:                 center;
+            font-size:                  var( --atx-tcv2-counter-font-size );
+            font-family:                var( --atx-tcv2-counter-font-face );
+            position:                   absolute;
+            vertical-align:             middle;
+            margin:                     auto 0;
+            left:                       3%;
+            top:                        -5px;
+            transform:                  translateX( -50% );
+            line-height:                var( --atx-tcv2-counter-bg-size );
+          }

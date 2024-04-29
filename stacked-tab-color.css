@@ -1,0 +1,250 @@
+
+/*.theme-light {*/
+	/* Tabs: non-current tab title and X while window unfocused */
+	/* Stacked Tabs: non-current tab while window unfocused */
+	/* --tab-text-color: #ff0000; */
+	
+	/* Tabs, Stacked Tabs: current tab title while window unfocused */
+	/* --tab-text-color-active: #00ff00; */
+	
+	/* Tabs: Excepting mouse hover, all tab X buttons when window is focused, and current tab X when unfocused. */
+	/* Stacked Tabs: non-current tab title while window focused, and ALL X buttons always */
+	/* --tab-text-color-focused: #0000ff; */
+	
+	/*
+	--tab-text-color-focused-active: #ff00ff;
+	--tab-text-color-focused-highlighted: #ffff00;
+	*/
+	/* Tabs: Current tab title while window focused. Any tab X button when hovered. */
+	/* Stacked Tabs: current tab title while window focused. */
+	/*
+	--tab-text-color-focused-active-current: #00ffff;
+
+  --tab-outline-color: #935a5a;
+  --tab-font-size: 0.85em;
+  --minimal-tab-text-color-active: #ff0000;
+
+	--tab-background-active: #ff0000;
+	*/
+
+/* Stacked */
+
+.theme-light  {
+
+		--color-tab: var(--background-secondary-alt);
+    --color-tab-darker: hsl(from var(--color-tab) h s calc(l - 5%)); 
+    --color-tab-darkest: hsl(from var(--color-tab) h s calc(l - 20%)); 
+    --color-tab-lighter: hsl(from var(--color-tab) h s calc(l + 5%)); 
+    --color-tab-lightest: hsl(from var(--color-tab) h s calc(l + 10%)); 
+		--color-tab-text: hsl(from var(--background-secondary-alt) h s calc(l - 50%)); 
+		
+    --color-tab-active: var(--interactive-accent); /* any format you want here */
+    --color-tab-active-darker: hsl(from var(--color-tab-active) h s calc(l - 5%)); 
+    --color-tab-active-darkest: hsl(from var(--color-tab-active) h s calc(l - 20%)); 
+    --color-tab-active-lighter: hsl(from var(--color-tab-active) h s calc(l + 5%)); 
+    --color-tab-active-lightest: hsl(from var(--color-tab-active) h s calc(l + 10%)); 
+		--color-tab-active-text: rgb(255,255,255);
+
+		--tab-lum-step: 0.02;
+
+		--gradient-color: rgb(0,0,0);
+		--color-tab-gradient: linear-gradient(
+			to bottom,
+			hsl(from var(--color-tab-active) h s calc(l - 10%)) 0%,
+			hsl(from var(--color-tab-darker) h s calc(l - 50%)) 100%,
+			);
+			
+		
+		
+}
+
+/*
+
+Ok it took some shananigans, but:
+```css
+/* Stacked tabs 
+.mod-stacked .workspace-tab-header:has(.workspace-tab-header-status-container:not(:empty))+.workspace-leaf .view-header-title{
+  color: red;
+}
+
+/* Unstacked tabs 
+:not(.mod-stacked) .workspace-tab-header-container:has(.is-active .workspace-tab-header-status-container:not(:empty)) + .workspace-tab-container .view-header-title {
+  color: red;
+}
+```
+
+*/
+
+
+
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header:not(.is-active,.mod-active):nth-child(10n+1) {--tab-index: 1}
+
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header:not(.is-active,.mod-active)+.workspace-leaf:nth-child(10n+2) {--tab-index: 2}
+
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header:not(.is-active,.mod-active):nth-child(10n+3) {--tab-index: 3}
+
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header:not(.is-active,.mod-active):nth-child(10n+4) {--tab-index: 4}
+
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header:not(.is-active,.mod-active):nth-child(10n+5) {--tab-index: 5}
+
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header:not(.is-active,.mod-active):nth-child(10n+6) {--tab-index: 6}
+
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header:not(.is-active,.mod-active):nth-child(10n+7) {--tab-index: 7}
+
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header:not(.is-active.mod-active):nth-child(10n+8) {--tab-index: 8}
+
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header:not(.is-active,.mod-active):nth-child(10n+9) {--tab-index: 9}
+
+
+
+	/*
+	Darken:
+	0 (no change) to 1 (black) 
+  calc(var(--color-l) - var(--color-l) * 0.3)
+	
+	Lighten:
+	0 (no change) to 1 (white):
+	calc(var(--color-l) + (100% - var(--color-l)) * 0.4)
+	
+	(no change) to 1 (full) 
+  calc(var(--color-s) + (100% - var(--color-s)) * 0.9),
+	
+	0 (no change) to 1 (grayscale)
+  calc(var(--color-s) - var(--color-s) * 0.6),
+
+	Complement:
+  calc(var(--color-h) + 180),
+	*/
+	
+/*.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-header,
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-leaf, {
+		order: var(--tab-index);
+}*/
+
+/*
+If you wanted to go fancy and have tabs colored by their order you could do something like this:
+```css
+.workspace-tab-header-container-inner > .workspace-tab-header {
+  background-color: var(--tab-bg) !important;
+}
+.workspace-tab-header-container-inner > .workspace-tab-header.is-active {
+  background-color: var(--tab-active-bg) !important;
+  --tab-background-active: var(--tab-active-bg);
+}
+.workspace-tab-header-container-inner > .workspace-tab-header::after {
+  z-index: 1;
+}
+.workspace-tab-header:nth-child(1) {--tab-active-bg: #8e5231;--tab-bg: #5b331e;}
+.workspace-tab-header:nth-child(2) {--tab-active-bg: #8e313f;--tab-bg: #67232d;}
+.workspace-tab-header:nth-child(3) {--tab-active-bg: #8e8131;--tab-bg: #675e22;}
+.workspace-tab-header:nth-child(4) {--tab-active-bg: #313f8e;--tab-bg: #212c6a;}
+.workspace-tab-header:nth-child(5) {--tab-active-bg: #52318e;--tab-bg: #341e5d;}
+.workspace-tab-header:nth-child(5) {--tab-active-bg: #318e52;--tab-bg: #2f523b;}
+```
+*/
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header {
+		/*background-color: hsl(from var(--color-tab) h s calc(l - (var(--tab-index) - 1) * var(--tab-lum-step))) !important;*/ 
+	/*background-color: var(--color-tab) !important;*/
+	
+		tab-index: var(--tab-index);
+
+		--current-color-tab: hsl(from var(--color-tab)
+			h
+			s
+			calc(l - l * ((var(--tab-index) - 1) * var(--tab-lum-step))));
+
+
+		--color-tab-darker: hsl(from var(--current-color-tab)
+			h
+			s
+			calc(l - l * ((var(--tab-index) - 1) * var(--tab-lum-step))));
+
+		--color-tab-lighter: hsl(from var(--current-color-tab)
+			h
+			s
+			calc(l + l * ((var(--tab-index) - 1) * var(--tab-lum-step))));
+		
+		
+		background-color: var(--color-tab-darker) !important;
+		
+		
+		--border-left-color: var(--color-tab-lighter) !important;
+		--border-right-color: var(--color-tab-darker) !important;  
+
+		border-left: 2px solid var(--border-left-color) !important;
+		border-right: 2px solid var(--border-right-color) !important;
+		
+		
+}
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container > .workspace-tab-header::after {
+	z-index: 1
+}
+	
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-header > div {
+	/*-webkit-filter: saturate(calc(var(--tab--index) - 1) * 10%) !important;*/
+}
+
+
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-header .workspace-tab-header-inner-close-button,
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-header .workspace-tab-header-inner-icon svg,
+.workspace .workspace-tabs.mod-stacked .workspace-tab-header .workspace-tab-header-inner-title {    
+		/*color: hsl(from var(--color-tab) h s calc(l + (var(--tab-index) ) * var(--tab-lum-step))) !important;*/
+		color: hsl(from var(--color-tab) h s hue-rotate(calc(l - (var(--tab-index) ) * var(--tab-lum-step)))) !important;
+}
+
+
+.workspace .workspace-tabs.mod-stacked .workspace-tab-header .workspace-tab-header-inner-title {
+		font-style: italic;
+		font-weight: normal;
+		margin-top: 1%;
+}
+
+
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-header.is-active.mod-active {
+    background-color: var(--color-tab-active) !important; 
+    border-left: 2px solid var(--color-tab-active-lightest) !important;
+    border-right: 2px solid var(--color-tab-active-darkest) !important;		
+}
+
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-header.is-active.mod-active .workspace-tab-header-inner-close-button,
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-header.is-active.mod-active .workspace-tab-header-inner-icon svg,
+.workspace .workspace-tabs.mod-stacked .workspace-tab-header.is-active.mod-active .workspace-tab-header-inner-title {
+    color: var(--color-tab-active-text) !important;
+		font-weight: bold;
+		font-style: normal;
+		margin-top: 0%;
+}
+
+/* stacked tabs background color on hover /
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header {
+     background-color: rgb(232,232,232);
+}
+
+/* stacked tabs background color 
+.workspace .mod-root .mod-stacked .workspace-tab-header-inner {
+    background-color: rgb(127,127,127);
+}
+
+/* stacked tabs - text orientation, font-weight, color 
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container .workspace-tab-header-inner-title {
+    /*text-orientation: upright;
+    font-weight: 600;
+    color: var(--interactive-accent);
+}
+
+.workspace-tabs.mod-stacked  .workspace-tab-header.mod-active {
+  background-color: var(--interactive-accent);
+	text-color: rgb(255,255,255);
+}
+
+.workspace-tabs.mod-stacked  .workspace-tab-header:not(.mod-active) {
+  background-color: rgb(127,127,127) !important;
+}
+*/
+
+.workspace .mod-root .workspace-tabs.mod-stacked .workspace-tab-container {
+	
+	.workspace-tab-header:not(.is-active,.mod-active):nth-child(3) {
+  		color: red !important;
+	}
+}

@@ -1,0 +1,259 @@
+/* @settings
+
+name: bluecav Obsidian Styles
+id: bluecav-obsidian-styles
+settings:
+    - 
+        id: my-title
+        title: Multi Column Properties
+        type: heading
+        level: 3
+    -
+        id: bluecav-property-columns
+        title: Number of Property Columns
+        description: How many property columns do you want
+        type: variable-select
+        default: 1fr 1fr
+        options:
+            - 
+                label: 1
+                value: 1fr
+            - 
+                label: 2
+                value: 1fr 1fr
+            - 
+                label: 3
+                value: 1fr 1fr 1fr
+            - 
+                label: 4
+                value: 1fr 1fr 1fr 1fr
+    - 
+        id: bluecav-property-key-color
+        title: Accent Color
+        type: variable-color
+        format: hsl-split
+        default: '#'
+    -
+*/
+
+body.theme-light.css-settings-manager, 
+body.theme-dark.css-settings-manager { 
+  --bluecav-property-key-color: var(--text-accent);  
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: var(--col);
+  grid-template-rows: var(--row);
+}
+
+[data-type="markdown"] .metadata-properties {
+  display: grid;
+ 
+  grid-template-columns: var(--bluecav-property-columns);
+  grid-template-rows: var(--bluecav-property-rows);
+  gap: 3px 0px;
+}
+
+[data-type="markdown"] .metadata-property {
+  display: grid;
+  grid-template-rows: 2em auto;
+  gap: 3px 0px;
+  border: 2px solid var(--text-faint);
+  padding: 0px;
+  border-width: 2px;  
+
+}
+
+
+
+[data-type="markdown"] .metadata-property-key {
+  height: 2em;
+}
+
+[data-type="markdown"] .metadata-property-key-input {
+  color: var(--bluecav-property-key-color) !important;
+}
+
+[data-type="markdown"] .metadata-properties .metadata-property-value {
+  align-items: baseline;
+  padding: 5px;
+  
+}
+
+[data-type="markdown"] .metadata-property .multi-select-container {
+  
+    background-color: var(--interactive-normal);
+    margin: 3px; 
+    border-radius: 5px;
+
+}
+
+[data-type="markdown"] .metadata-property .metadata-input-longtext {
+  background-color: var(--interactive-normal);
+    margin: 3px; 
+    border-radius: 5px;
+
+}
+
+[data-type="markdown"] .multi-select-pill {
+  height: 1.5em;
+  background-color: var(--interactive-normal);
+  border: 3px solid var(--text-selection);
+  padding: 5px;
+}
+
+body {
+  --metadata-label-width: 100%;
+}
+
+
+
+.button-10 button {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+
+  color: #fff;
+  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+   background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-10:focus {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+
+
+
+.button-11 button {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  color: #3D3D3D;
+  background: #fff;
+  border: none;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-11:focus {
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+
+
+
+.button-12 {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
+
+  background: #6E6D70;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.5), 0px 0px 0px 0.5px rgba(0, 0, 0, 0.12);
+  color: #DFDEDF;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-12:focus {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+
+
+.button-15 {
+  background-image: linear-gradient(#42A1EC, #0070C9);
+  border: 1px solid #0077CC;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  direction: ltr;
+  display: block;
+  font-family: "SF Pro Text","SF Pro Icons","AOS Icons","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: -.022em;
+  line-height: 1.47059;
+  min-width: 30px;
+  overflow: visible;
+  padding: 4px 15px;
+  text-align: center;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap; 
+}
+
+.button-15:disabled {
+  cursor: default;
+  opacity: .3;
+}
+
+.button-15:hover {
+  background-image: linear-gradient(#51A9EE, #147BCD);
+  border-color: #1482D0;
+  text-decoration: none;
+}
+
+.button-15:active {
+  background-image: linear-gradient(#3D94D9, #0067B9);
+  border-color: #006DBC;
+  outline: none;
+}
+
+.button-15:focus {
+  box-shadow: rgba(131, 192, 253, 0.5) 0 0 0 3px;
+  outline: none;
+}
+
+
+.button-43 button {
+  background-image: linear-gradient(-180deg, #37AEE2 0%, #1E96C8 100%);
+  border-radius: .5rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: inline-flex;
+
+  justify-content: center;
+  padding: 1rem 1.75rem;
+  text-decoration: none;
+  width: auto;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-43 button:hover {
+  background-image: linear-gradient(-180deg, #1D95C9 0%, #17759C 100%);
+}
+
+@media (min-width: 768px) {
+  .button-43 button {
+    padding: 1rem 2rem;
+  }
+}
+
