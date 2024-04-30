@@ -110,6 +110,23 @@ body {
 
 
 
+
+
+
+/*
+  I was having issues with dataviewjs code and code blocks being rendered with the 
+  contents within the visible region, but the scrollbar continued to show up
+  to scroll the full width starting at the point of the embed. This 
+  tries to limit the width to something visible like the callouts do
+*/
+.block-language-dataviewjs.node-insert-event .dataviewjs-visible-clip-output {
+	overflow-x: hidden !important;
+	max-width: var(--max-width) !important;
+  width: var(--line-width) !important;
+  margin-inline: var(--content-margin) !important;
+}
+
+
 .button-10 button {
   display: inline-flex;
   flex-direction: row;
