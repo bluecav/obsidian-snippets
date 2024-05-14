@@ -274,3 +274,30 @@ body {
   }
 }
 
+
+/*.meta-bind-grid {
+  display: grid;
+  grid-template-columns: var(--col);
+  grid-template-rows: var(--row);
+}
+
+
+.meta-bind-grid {
+  display: grid ;
+ 
+  grid-template-columns: var(--bluecav-property-columns);
+  grid-template-rows: var(--bluecav-property-rows);
+  gap: 3px 0px;
+}
+
+
+.mb-card {
+  display: grid !important;
+  grid-template-rows: 2em auto;
+  gap: 3px 0px;
+  border: 2px solid var(--text-faint);
+  padding: 0px;
+  border-width: 2px;  
+
+}
+*/
